@@ -1,5 +1,6 @@
 package application;
 
+import java.util.Date;
 import java.util.List;
 
 import db.DB;
@@ -23,8 +24,19 @@ public class Program {
 		System.out.println("=== TEST 2: Seller findByDepartment ===");
 		List<Seller> sellerListByDepartment = sellerDao.findByDepartment(new Department(2, null));
 		sellerListByDepartment.forEach(System.out::println);
-		System.out.println();
 
+		System.out.println();
+		System.out.println("=== TEST 3: Seller findByDepartment ===");
+		List<Seller> sellerListfinAll = sellerDao.findAll();
+		sellerListfinAll.forEach(System.out::println);
+
+		System.out.println();
+		System.out.println("=== TEST 4: Seller Insert ===");
+		Seller newSeller = new Seller(null, "Kelly Maria", "KM@mail", new Date(), 4000.0, new Department(2, null));
+		sellerDao.insert(newSeller);
+		System.out.println("Inserted! New id = " + newSeller.getId());
+
+		System.out.println();
 		DB.CloseConnection();
 	}
 
