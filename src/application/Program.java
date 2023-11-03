@@ -37,6 +37,14 @@ public class Program {
 		System.out.println("Inserted! New id = " + newSeller.getId());
 
 		System.out.println();
+		System.out.println("=== TEST 5: Seller update ===");
+		Seller updateSeller = sellerDao.findById(1);
+		System.out.println("Before: " + updateSeller.toString());
+		updateSeller.setName("Bob Brown");
+		sellerDao.update(updateSeller);
+		System.out.println("Then: " + updateSeller.toString());
+
+		System.out.println();
 		DB.CloseConnection();
 	}
 
